@@ -26,3 +26,10 @@ jobs:
         run: ./gradlew applyAllPatches --stacktrace
       - name: Build
         run: ./gradlew build
+      - name: Create Paperclip Jar
+        run: ./gradlew createMojmapPaperclipJar
+      - name: Upload Paperclip Jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: folia-paperclip
+          path: folia-server/build/libs/folia-paperclip-*.jar
